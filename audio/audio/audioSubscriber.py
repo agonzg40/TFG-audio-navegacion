@@ -18,13 +18,13 @@ from geometry_msgs.msg import PoseStamped
 from audio.robot_navigator import BasicNavigator, NavigationResult
 from nav2_msgs.action import NavigateToPose, FollowWaypoints, ComputePathToPose
 
-archive=open("src/concurso-TFG/output/results.txt","w")
+archive=open("src/TFG-audio-navegacion-main/output/results.txt","w")
 counter = [0]
 
 #Identify if is a source or a goal
 def identify(data, verb, number):
 
-    archiveAux = open("src/concurso-TFG/lexicon/places.txt","r")
+    archiveAux = open("src/TFG-audio-navegacion-main/lexicon/places.txt","r")
     mensaje = archiveAux.read()
 
     aux = ""
@@ -157,7 +157,7 @@ def identifyGoalComposed(data, verb):
 def identifyBeneficiary(data):
 
     #Open the archive pronouns
-    archiveAux = open("lexicon/personal_prononouns.txt","r")
+    archiveAux = open("src/TFG-audio-navegacion-main/lexicon/personal_prononouns.txt","r")
     mensaje = archiveAux.read()
 
     aux = ""
@@ -237,7 +237,7 @@ class audioSubscriber(Node):
         tokens = nltk.word_tokenize(text.data)
 
         #Opening the archive with the verbs
-        archiveAux = open("src/concurso-TFG/lexicon/verbs.txt","r")
+        archiveAux = open("src/TFG-audio-navegacion-main/lexicon/verbs.txt","r")
         mensaje = archiveAux.read()
 
         aux = ""
